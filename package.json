@@ -1,0 +1,22 @@
+{
+  "name": "frontend",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/patch-vite-eperm.cjs && nuxt build",
+    "dev": "node scripts/patch-vite-eperm.cjs && node --max-old-space-size=4096 ./node_modules/nuxt/bin/nuxt.mjs dev --no-fork",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "node scripts/patch-vite-eperm.cjs && nuxt prepare"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.16",
+    "@zxing/browser": "^0.2.0",
+    "nuxt": "^4.2.0",
+    "tailwindcss": "^4.1.16",
+    "vue": "^3.5.22",
+    "vue-router": "^4.6.3",
+    "xlsx": "^0.18.5",
+    "xlsx-js-style": "^1.2.0"
+  }
+}
