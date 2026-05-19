@@ -1,4 +1,4 @@
-﻿<template>
+<template>
   <div class="min-h-screen bg-slate-100 text-slate-900">
     <header class="border-b border-slate-200 bg-white">
       <div class="mx-auto flex w-full max-w-7xl flex-wrap items-center justify-between gap-3 px-4 py-5 sm:px-6 lg:px-8">
@@ -471,26 +471,7 @@ watch(filteredData, () => {
   }
 })
 
-const normalizeImageUrl = (path) => {
-  const raw = String(path || '').trim()
-  if (!raw) return ''
-
-  if (/^https?:\/\//i.test(raw)) {
-    return raw
-  }
-
-  if (raw.startsWith('/')) {
-    return `${API_ORIGIN}${raw}`
-  }
-
-  if (raw.startsWith('storage/')) {
-    return `${API_ORIGIN}/${raw}`
-  }
-
-  return `${API_ORIGIN}/storage/${raw}`
-}
-
-const getImageUrl = (path) => normalizeImageUrl(path) || PLACEHOLDER_IMAGE
+const { getImageUrl } = useApiImageUrl(PLACEHOLDER_IMAGE)
 
 const handleImageError = (event) => {
   const target = event?.target
