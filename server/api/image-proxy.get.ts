@@ -3,7 +3,7 @@ export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig()
   const apiBase = String(config.public.apiBase || 'http://127.0.0.1:8000').replace(/\/+$/, '')
   const source = String(query.src || '').trim()
-  const rawPath = String(query.path || '').trim()
+  const rawPath = String(query.path || '').trim().replace(/\\/g, '/')
 
   let imageUrl = ''
 
